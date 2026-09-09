@@ -1,0 +1,19 @@
+1. Loss function nima va u metrics'dan nimasi bilan farq qiladi?
+  1. Nega Accuracy'ni to'g'ridan-to'g'ri loss function sifatida ishlatib bo'lmaydi?
+  2. MSE va Cross-Entropy loss'lari qaysinda qo'llaniladi?
+
+2. Gradient Descent nima va u loss function bilan qanday bog'liq?
+  1. Learning rate juda katta yoki juda kichik bo'lsa nima bo'ladi?
+  2. Yuqori Batch, O'rtacha va Mini-batch o'rtasidagi farq nimada?
+
+3. Epoch va Batch tushunchalari bir-biridan nimasi bilan farq qiladi?
+  1. 10,000 dataset va batch size 50 bo'lsa, 1 epoch ichida nechta iteration bo'ladi?
+  2. Juda ko'p epoch bilan o'qitish qanday muammoga olib kelishi mumkin?
+
+4. Forward Propagation va Backward Propagation (Backpropagation) nima va ular qanday farqlanadi?
+  1. Backpropagation'da qaysi matematik qoida (chain rule) ishlatiladi va nega aynan shu qoida kerak?
+  2. Forward va Backward Propagation birgalikda bitta iteration'da qanday tartibda ishlaydi?
+
+5. Neural Network nima va activation function unda qanday rol o'ynaydi?
+  1. Agar activation function bo'lmasa, ko'p qatlamli neyron tarmoqqa nima bo'ladi?
+  2. ReLU activation function nega hidden layerlarda eng ko'p ishlatiladi?

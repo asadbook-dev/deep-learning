@@ -1,0 +1,11 @@
+1. Gradient Descent nima va u qanday ishlaydi?
+  1. Learning rate juda katta yoki juda kichik bo'lganda nima yuz beradi?
+
+2. Activation Function nima va u nega neural networkda zarur?
+  1. ReLU va Sigmoid activation functionlari qayerda qo'llaniladi va ular orasidagi farq nima?
+
+3. Tensor nima va u NumPy array'dan nimasi bilan farq qiladi?
+  1. NumPy array'ni PyTorch Tensor'ga (va aksincha) qanday aylantirish mumkin?
+
+4. Gradient Descent, Activation Function va Tensor tushunchalari NN train jarayonida qanday birgalikda ishlaydi?
+  1. Agar activation function bo'lmasa, Gradient Descent baribir ishlaydimi, lekin natija qanday bo'ladi?

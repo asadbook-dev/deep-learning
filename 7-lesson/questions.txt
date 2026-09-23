@@ -1,0 +1,41 @@
+=> Loss function nima?
+Model predict bilan actual qiymat orasidagi xatolikni songa aylantiruvchi function (masalan, MSE, CrossEntropy).
+
+=> Loss juda past bo'lsa (masalan, 0.001), bu har doim yaxshimi?
+Yo'q — agar bu faqat trainda past bo'lsa, overfitting bo'lishi mumkin (model yodlab olgan, umumlashtirmagan).
+
+=> Gradient descent nima?
+Loss'ni kamaytirish uchun weights ni gradient yo'nalishi bo'yicha, kichik qadamlar bilan yangilab boruvchi optimizatsiya algoritmi.
+
+=> batch_size kichik va katta bo'lishi nimaga ta'sir qiladi?
+Kichik batch — shovqinliroq, lekin yaxshi umumlashtiradi; katta batch — silliqroq, tezroq, lekin ko'proq xotira talab qiladi.
+
+=> Epoch nima?
+Butun train ma'lumotini bir marta, to'liq ko'rib chiqish.
+
+=> Ko'p epoch — har doim yaxshimi?
+Yo'q — ma'lum nuqtadan keyin overfitting boshlanishi mumkin, shuning uchun early stopping kerak bo'ladi.
+
+=> Batch nima?
+Ma'lumotning bir vaqtda modelga beriladigan kichik qismi (bir epoch bir nechta batch'dan iborat).
+
+=> Nega faqat ReLU emas, boshqa activation'lar (Sigmoid, Tanh) ham bor?
+ReLU — hidden layerlar uchun tezroq va samarali; Sigmoid/Softmax esa output layerda (classification) ehtimollik uchun ishlatiladi.
+
+=> Activation function nima uchun kerak?
+Modelga chiziqli bo'lmagan (nonlinear) murakkab bog'liqliklarni o'rganish imkonini beradi (ReLU, Sigmoid, Tanh).
+
+=> Adam nega ko'pincha SGDdan afzal ko'riladi?
+Adam har bir parametr uchun moslashuvchan learning rate va momentum ishlatadi — odatda tezroq va barqarorroq yaqinlashadi.
+
+=> Optimizer nima?
+Gradientlar asosida modelning weights ni yangilaydigan algoritm (masalan, Adam, SGD).
+
+=> Learning rate juda katta yoki juda kichik bo'lsa nima bo'ladi?
+Juda katta → loss beqaror, "portlaydi"; juda kichik → loss juda sekin pasayadi yoki "qotib qoladi".
+
+-=> Learning rate nima?
+Optimizer har bir qadamda weights ni qanchalik katta o'zgartirishini belgilaydigan parametr.
+
+=> Train loss pasayadi, lekin test loss o'sa boshlasa — bu nima?
+Overfitting — model train ma'lumotini "yodlab olgan", yangi ma'lumotda yomon ishlayapti.

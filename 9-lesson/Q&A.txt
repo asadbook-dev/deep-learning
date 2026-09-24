@@ -1,0 +1,26 @@
+1. Regularization vs Generalization
+
+=> Regularization — modelning overfitting qilishini kamaytirish uchun qo‘llanadigan technique.
+Ya'ni model training data'ni haddan tashqari yodlab olmasligi uchun modelni "cheklaymiz". L2 regularization (Weight Decay), Dropout, BatchNorm (Training vaqtida)
+=> Generalization — modelning training data'dan tashqari, yangi/unseen data'da ham yaxshi ishlash qobiliyati.
+Agar model training data'da ham, validation/test data'da ham yaxshi ishlasa → good generalization. (Mmodelning natijasida korinadi)
+
+2. Faqat overfittingni pasaytirishga urg'u beradigan regularization turi?
+=> L2 Regularization (Weight Decay) — katta weightlarni kichraytiradi.
+=> Dropout — training paytida ayrim neuronlarni vaqtincha o‘chiradi.
+=> Early Stopping — validation performance yomonlasha boshlaganda trainingni to‘xtatadi.
+
+3. Regularization qanday turlari va ularning bir biridan farqi va o'xshash tomoni?
+=> L2 - Katta weightlarni kichraytiradi - Modelni silliqroq va kamroq complex qiladi
+=> Dropout - Training vaqtida neuronlarning bir qismini vaqtincha o‘chiradi - Neuronlarning bir-biriga haddan tashqari bog‘lanishini kamaytiradi
+=> Early Stopping - Validation loss yomonlashganda trainingni to‘xtatadi - Overfitting boshlanishining oldini oladi
+=> BatchNorm - Trainingni stabillashtirishga harakat qiladi
+
+4. Model trainingni SML va SDL qanday stabil holatga keltiramiz.
+=> SML - Data preprocessing, Feature engineering, Cross-validation, Hyperparameter runing ...  ni qo'llaniladi
+=> SDL - Loss ni kamaytirish (Gradient descent) va modelni convergence qilishni ta'minlash. 
+
+5. Model training stabil holatga kelganda convergence qanday bo'ladi? Loss functionschi?
+=> Model converge bo‘lganda, model weightlari optimal qiymatlarga yaqinlashadi va loss endi sezilarli kamaymaydi.
+=> Loss function modelning prediction'i qanchalik xato ekanini o‘lchaydi. Stable trainingda loss Smoothly decreasing → convergence
+=> Convergence - Model weightlari va loss qiymati endi sezilarli o‘zgarmaydigan holatga yaqinlashdi.

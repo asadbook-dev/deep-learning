@@ -1,0 +1,45 @@
+1. Training dynamics — nimaga "static emas"?
+
+=> static  o'zgarmas, dynamic - o'zgaruvchan degani. Model training da loss, weights lar har epoch, har batchda o'zgarib boradi (kamayadi, oshadi, tebranadi).
+Agar bu faqatgina 1 ta epochda (1 marta o'lchasa) static bo'lib qoladi. Lekin biz butun jarayonni kuzatishimiz kerak shuning uchun dynamic.
+
+2. Learning rate — nimaga "rate"? nimaga "learning"?
+
+=> "Learning" — bu parametr modelning o'rganish jarayoniga tegishli, chunki u aynan training paytida, weights ni yangilashda ishlatiladi.
+=> "Rate" — inglizchada "tezlik, sur'at" degani. Bu — qanchalik tez yoki sekin weights o'zgarishini belgilaydi, 
+xuddi avtomobil tezligi kabi: katta rate — tez harakat (katta qadamlar), kichik rate — sekin harakat (kichik qadamlar).
+=> Ya'ni, "learning rate" — "model qanchalik tez o'rganishi (weights o'zgartirishi) kerakligining sur'ati".
+
+3. Learning rate'ni tasodifiy (random) tanlashdan farqi — biz baribir o'zimiz son berayapmizku?
+=> "biz ham son beryapmiz" — bu to'g'ri, lekin farq shunda: biz bir nechta sonni sinab, ularning natijasini (loss dinamikasini) kuzatib, 
+eng yaxshisini tanlaymiz — bu eksperiment va tahlil, tasodifiy bitta sonni tanlab, tekshirmasdan ishlatish emas.
+
+4. Bias va Variance orasidagi farq
+
+=> Bias — model haqiqiy bog'liqlikni tushunib yetmagani uchun, har doim noto'g'ri tomonga siljigan bashorat qilishi. Ya'ni tarafkashlik.
+=> Variance — modelning turli train to'plamlariga qanchalik sezgir ekanligi. Agar modelni biroz boshqacha train data bilan qayta train qilsak, natija qanchalik ko'p o'zgaradi?
+=> Yuqori Bias (underfitting) - Model murakkabligini oshirish (ko'proq qatlam/neyron), ko'proq epoch, kamroq regularization
+=> Yuqori Variance (overfitting) - Dropout, weight decay, ko'proq data, early stopping, model soddalashtirish.
+
+5. Early stopping'ni qanday to'xtatamiz va nimaga to'xtatamiz?
+
+=> Nimaga to'xtatamiz: Test (validation) loss yaxshilanishni to'xtatganda (yoki yomonlasha boshlaganda) — bu overfitting boshlanganini bildiradi. 
+Agar davom ettirsak, model train'ni "yodlab olib", yangi ma'lumotda yomonlashadi.
+=> To'xtatish: 
+               best_loss — hozirgacha ko'rilgan eng past test loss'ni saqlaymiz
+               Har epoch'da test loss'ni tekshiramiz: Agar yaxshilansa best_loss ni yangilaymiz counter ni 0 ga qaytaramiz aks holda counterni 1 ga oshiramiz
+               Agar counter — patience (masalan, 10) ga yetsa → training'ni break bilan to'xtatamiz. patience => Test loss yaxshilanmasa, to'xtatishdan oldin necha epoch "sabr qilish" kerakligi
+               Har yaxshilanishda counter nolga tushadi; yaxshilanish bo'lmasa, oshadi; patiencega yetsa — to'xtaydi
+
+6. Convergence va Divergence
+
+=> Convergence (yaqinlashish) — loss vaqt o'tishi bilan pasayib, barqaror, past darajaga "kelib to'xtaydi". Model optimal yechimga yetib bordi.
+=> Divergence (uzoqlashish) — loss pasaymaydi, aksincha o'sib boradi yoki beqaror tebranadi: (Learning rate juda katta bio'lganda sodir bo'ladi)
+
+7. Loss kamaysa, qaysi biri kamayadi (ortadi)?
+
+=> Loss kamaysa — bu modelning xatolik darajasi kamayayotganini bildiradi, ya'ni:
+- Model predict sctual qiymatga yaqinlashadi (aniqlik ortadi)
+- Model sifati (performance) ortadi
+- Loss (xatolik)ning o'zi — bu kamayadi (chunki loss — xatolik o'lchovi, va biz aynan shuni kamaytirishga harakat qilamiz)
+=> Modelning weights — bular loss kamayishi sababli, har bir qadamda o'zgaradi (yangilanadi), lekin ular "kamaymaydi" yoki "ortmaydi" — ular shunchaki optimal qiymatga qarab siljiydi

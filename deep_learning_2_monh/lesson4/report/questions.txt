@@ -1,0 +1,19 @@
+1. Image da format va shape ni nima o'xshashlik va farqli tomoni bor?
+Format => File turi. (png, jpg)
+Shape => o'lchami (H, W, C)
+Ikkalasi ham bitta rasm haqida ma'lumot beradi. Format faqat yuklash paytigacha kerak, keyin model faqat shape va sonlarni ko'radi.
+
+2. RGB vs RGBA. Videoda qanday bolishi mumkin.
+Video juda ham ko'plab imagelardan tashkil topadi. shuning uchun Imageda gi blan bir xil boladi.
+
+3. Sifatli va sifatsiz imagelar bilan ishlanganda result qanday bo'ladi?
+Sifatsiz rasmda ma'lumot kam bo'ladi. Model aniqligi pasayadi. 
+Masalan, mushuk va it ajratadigan model: quloq shakli yoki mo'ylov detallari xira bo'lsa, ikkalasi o'xshash ko'rinadi va xato qiladi.
+
+4. Resolutionni qanday rivojlantirsak boladi?
+=> boshidan yuqori resolutionda olish (yaxshiroq kamera, yoki sifati yaxshi imagelar)
+=> Rasmni cho'zish. pixellar soni ko'payadi
+
+5. O'tgan darslarda o'rganilgan eng muhim ma'lumot nima/nimalar boldi?
+=> Yangi data turi bo'ldi. Oldin numericalni ko'rgan bo'lsak yani tabular datani numircalga o'tqaib train qilish (SML da). Hozir Image ni preprocessing qilib trainga tayyorlash bosqichidamiz.
+

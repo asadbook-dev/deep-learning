@@ -1,0 +1,26 @@
+1. PIL ni bir so'z bilan ifodalang.
+=> Image
+2. OpenCV deganda hayolingizga nima keladi?
+=> Computer Vision: Image va videoni analyze qilish
+3. PIL va OpenCV ning o'xshash va farqli jihatlarini yoritish uchun 5 tadan 10 ta list yarating
+O'xshash:
+- Ikkalasi ham open source
+- Rasm ochish va saqlash mumkin
+- Resize, rotate, crop qila oladi
+- Ko'p formatni (JPEG, PNG, ...) qo'llaydi
+- NumPy bilan ishlaydi (rasmni massivga aylantirish mumkin)
+
+Farqli:
+
+- Rang tartibi: PIL = RGB, OpenCV = BGR
+- Natija turi: PIL Image obyekti qaytaradi, OpenCV to'g'ridan-to'g'ri NumPy massivi
+- Video: PIL qo'llamaydi, OpenCV qo'llaydi
+- Yo'nalish: PIL oddiy rasm ishlov berish uchun, OpenCV computer vision uchun (qirralarni topish, yuzni aniqlash)
+- Tezlik: OpenCV odatda tezroq (C++ asosida)
+
+4. OpenCV da RGB vs RGBA qanday bo'ladi
+=> Standart cv2.imread("a.png") rasmni 3 channel (BGR) qilib o'qiydi, alphani tashlab yuboradi. Shakl: (H, W, 3)
+=> Alphani saqlash uchun: cv2.imread("a.png", cv2.IMREAD_UNCHANGED). Shakl: (H, W, 4), tartib BGRA
+
+5. Xatolikni toping: Videoni PIL orqali yuklaymiz, va uni OpenCv bilan naliz qilivb uni yana PIL Orqali ve qilamiz.
+=> PIL video yuklay olmaydi, u faqat rasm bilan ishlaydi.

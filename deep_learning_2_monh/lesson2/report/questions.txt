@@ -1,0 +1,13 @@
+1. Kompyuterlar imagelarni qanday ko'radi?
+=> Insonlardek oddiy ko'rmaydi. SOnar jadvali ko'rinishida ko'radi
+2. [0, 255, 0] bu qanday rang va izohlang.
+=> [Red, Green, Blue] => Green => 255.  Green color boladi. chunki qolganlari 0.  
+3. Nima uchun high resolution imagelari kop malumot tashiydu?
+=> chunki high resolution - pixellar soni ko'p degani. pixellar ko'p bolishi rasmni sifatli qiladi. Rasm shunchalar ko'p bo'laklarga bo'linadi va kichik qismlar ham yanada kichiklashadi pixellar kopayfgani sari
+4. Grayscale => h x w x 1 RGB => h x w x 3 RGBA => h x w x 4
+5. image shape (256, 197, 3)
+height => 256, width => 197, channels => 3 RGB image
+6. Transparency dan qachon foydalanamiz.
+=> Logotiplarda. Fon chiqmasligi kerak
+=> Sticker va emojilarda 
+

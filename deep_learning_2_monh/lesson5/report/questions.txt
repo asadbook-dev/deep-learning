@@ -1,1 +1,30 @@
+1. Rasmni tiniq yoki xiraligiga qarab unda qanday resolution bo'ladi?
+=> Rasmning tiniq yoki xiraligi uning resolutioniga bog'liq emas. Resolution pixellar soni bilan o'lchanadi (H x W), 
+tiniqlik esa qirralarning aniqligi bilan. Xira rasm ham yuqori resolutionda bo'lishi mumkin, tiniq rasm ham past resolutionda bo'lishi mumkin.
 
+2. Yuqoridagi ikki holatda qaysi birida raqamlar kattaroq boladi.
+
+=> Resolution birxil - tiniq rasm degani => f ni katta olsak hosil boladi (Sharpness). Resolution ozgarishsiz qoladi. pixelning qiymati oshadi. 
+=> Ikkinchi holatda esa uning teskarisi
+
+3. Pillow vazifasi jihatidan qaysi SML kutubxonasiga o'xshaydi. 
+=> Pandas ga o'xshaydi. chunki pandas bilan tabular datalar ustida amallar bajarar edik. Pillow bilan esa image datalar bilan ishlayabmiz
+
+4. Hoizrgacha 2-oyda o'rgangan ketma ketliklarga nazariy pipeline
+Image => pixels => RGBA => Pillow => OpenCV => Image Formats => Image to tensors => Normatization => Image Transforms
+
+5. Data structure nima DL da va u nima uchun muhim
+=> DL da asosiy tuzilma tensor: bir xil turdagi sonlarning ko'p o'lchovli massivi.
+=> Model faqat sonlarni tushunadi. Rasm, matn, ovoz hammasi tensorga aylantirilishi kerak.
+=> Tezlik. Tensorlar GPU (grafik protsessor, minglab hisobni bir vaqtda bajaradi) da parallel hisoblanadi. Oddiy Python ro'yxati (list) bunday tez emas.
+
+6. Data augmentation nima?
+=> mavjud rasmlardan o'zgartirilgan variantlar yasab, datasetni sun'iy kengaytirish. Flip, rotate, crop, Brightness, Contrast vahokazo
+
+7. Data preprocessing DL da qanday boladi?
+Rasmni modelga berishdan oldin tayyorlash.
+=> Yuklash: faylni ochish (PIL, OpenCV)
+=> RGB ga keltirish: grayscale yoki RGBA bo'lsa, 3 channelga o'tkazish
+=> Resize: hammasini bir xil o'lchamga (masalan 224 x 224)
+=> Tensorga aylantirish: [H, W, C] to [C, H, W]
+=> Normalization: mean va std bilan standartlash

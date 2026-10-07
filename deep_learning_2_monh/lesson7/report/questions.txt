@@ -1,0 +1,47 @@
+1. Data augmentation va transforms ni nima farqi va oxshashlik tomoni bor?
+=> Data Augmentation datani xilma xil qilish. Ko'paytirish. mavjud bolgan datadan. 
+Faqat train datani ko'paytiriladi.
+=> Transform esa Data Augmenttion uchun vosita.
+Train va test datada ham qollanilad
+
+2. Ularni qanday foydali va zararli tomonlari bor
+=> Data Augmentation
+- Model real o'zgarishlarga chidamli boladi (bitta datani Har tomondan korinishini oladi), Data kam bo'lganda kopaytira olamiz, Overfittingni kamaytiradi
+- Label manosi buzilib qolishi mumkin (6 va 9 ni rotate qilish), Yangi haqiqiy malumotlar qoshmaydi, Train sekinlashadi, Har rasm qayta ishlanishi hisobiga
+=> Transforms
+- Hamma rasm bir xil shaklda 200 x 200 bo'ladi, Normalization trainni tezlashtiradi
+- Resize detalni yo'qotadi, proporsiyani buzishi mumkin, Crop muhim qismni kesib tashlashi mumkin
+
+3. Qaysi biri nima uchun foydalaniladi
+- Rasmni model kiritishiga moslash (o'lcham, tensor, normalize) - transforms (Resize, ToImage, Normalize)
+- Kam data bilan overfitting ni kamaytirish - Augmentation (RandomHorizontalFlip, RandomRotation)
+- Yorug'lik va rang o'zgarish - Color augmentation (ColorJitter)
+- Kamera burchagi va masofasi o'zgarishiga chidamlilik - Geometric augmentation (RandomAffine, RandomResizedCrop)
+
+Transform - ham trainda, ham test dataset uchun ishlatiladi
+Augmentation - faqat trainda, modelga oqitish jarayonida 
+
+4. Nima uchun Data Augmentation uchun OpenCV yoki Pillow dan foydalanmasdan Torchvisiondan foydalandik
+Pillow va OpenCV rasm bilan ishlash vositalari (flip, rotate vahokazo). Torchvision esa PyTorch uchun tayyor augmentation tizimi (random, ketma-ketlik, dataset bilan ulanish bor).
+- RandomHorizontalFlip(p=0.5), RandomRotation(15). Pillow va OpenCV da "50% holatda flip qilish" ni o'zimiz random bilan yozishimiz kerak.
+- Compose - Bir nechta amalni bitta zanjirga ulaydi.
+- PyTorch modeli tensor kutadi. ToImage, ToDtype, Normalize shu yerning o'zida.
+
+=> Pillow va OpenCV = alohida asboblar (bolg'a, arra). Torchvision = shu asboblar yig'ilgan, PyTorch ga moslangan tayyor ustaxona.
+
+5. OpenCV va Pillow kutubxonalarini tekshiring va Augmenationga built-in functionlarni tekshiring.
+Image.        resize, crop, rotate, transpose, transform (affine), convert	            geometric
+ImageOps    	mirror, flip, pad, expand, fit, contain, cover, crop, deform	            geometric
+ImageOps	    autocontrast, equalize, invert, posterize, solarize, grayscale, colorize	color
+ImageEnhance	Brightness, Contrast, Color, Sharpness	                                  color
+ImageFilter	  GaussianBlur, SHARPEN, FIND_EDGES	                                        filtr
+
+cv2.resize	                                      o'lcham o'zgartirish	                          geometric
+cv2.flip	                                        ag'darish (flipCode: 0 vertikal, 1 gorizontal)	geometric
+cv2.getRotationMatrix2D + cv2.warpAffine          burish, masshtab, siljitish	                    geometric
+cv2.getAffineTransform + cv2.warpAffine	          umumiy affine (shear ham)	                      geometric
+cv2.getPerspectiveTransform + cv2.warpPerspective	perspektiva	                                    geometric
+cv2.copyMakeBorder	                              padding	                                        geometric
+cv2.GaussianBlur, cv2.medianBlur	                xiralashtirish	                                filtr
+cv2.cvtColor	                                    rang fazosi (BGR, HSV, gray)	                  color
+cv2.equalizeHist, cv2.createCLAHE	                kontrastni tekislash	                          color

@@ -1,0 +1,46 @@
+1. NN arxitekturasini chizing va tushuntiring
+=> Neural Network (NN) — ma'lumotlardan patternlarni o‘rganib, prediction qiladigan model.
+NN odatda 3 ta asosiy qismdan tashkil topadi:
+Input Layer → Hidden Layer(s) → Output Layer
+
+Input Layer: ma'lumotlarni qabul qiladi.
+Hidden Layer(s): weights va activation function yordamida patternlarni o‘rganadi.
+Output Layer: yakuniy predictionni chiqaradi.
+
+2. Grayscale vs RGB vs RGBA
+=> Grayscale
+Faqat yorug‘lik darajasini ifodalaydi. Odatda bitta channel bo‘ladi.
+Shape: 28 × 28 × 1
+
+=> RGB
+Uchta channel mavjud: Red, Green, Blue.
+Shape: 224 × 224 × 3
+Rangli rasmlar uchun ishlatiladi.
+
+=> RGBA
+RGB rang kanallariga qo‘shimcha Alpha channel mavjud.
+Shape: 224 × 224 × 4
+Alpha transparency — rasmning shaffoflik darajasini ifodalaydi.
+
+3. Image Preprocessing vs Numeric Preprocessing
+=> Preprocessing — modelga berishdan oldin ma'lumotlarni tayyorlash jarayoni.
+
+Image Preprocessing: Rasmlar bilan ishlaydi, Resize, Normalize pixel values, Crop va augmentation, Channel formatini o‘zgartirish
+Numeric Preprocessing: Jadvaldagi raqamli featurelar bilan ishlaydi, Missing value filling, Standardization yoki Min-Max Scaling, Outlierlarni tekshirish, Feature selection
+
+4. CNN va MLP qanday farq qiladi?
+=> MLP (Multi-Layer Perceptron) — asosan Linear layerlardan tashkil topgan Neural Network.
+=> CNN (Convolutional Neural Network) — Convolutional layerlardan foydalanib, rasmdagi lokal patternlarni o‘rganuvchi Neural Network.
+
+MLP                                            CNN
+Linear layerlardan foydalanadi                 Convolution layerlardan foydalanadi
+Odatda inputni Flatten qiladi                  Rasmning spatial structure qismini saqlaydi
+Har bir input featurega weights bog‘lanadi.    Filter weights bir nechta joyda qayta ishlatiladi
+Tabular data uchun qulay                       Image data uchun juda qulay
+
+5. Nima uchun CNN imagelar uchun yaxshi variant?
+=> CNN rasmlarning spatial structure — piksellarning bir-biriga nisbatan joylashuvini hisobga oladi.
+Uning 3 ta asosiy afzalligi bor:
+- Local feature extraction: kichik filterlar yordamida qirra, chiziq va shakllarni aniqlaydi.
+- Parameter sharing: bitta filter weightslari rasmning turli joylarida ishlatiladi, shuning uchun parametrlar soni kamayadi.
+- Hierarchical learning: dastlab sodda patternlarni, keyin murakkabroq patternlarni o‘rganadi.

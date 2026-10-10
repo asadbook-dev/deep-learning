@@ -1,0 +1,31 @@
+1. Video va imagelar bilan ishlashning o’xshash va farqli tomonlari
+=> Ikkalasi ham piksellardan iborat va kompyuterda NumPy massivi sifatida saqlanadi.
+=> Bir xil rang formatlari (BGR, RGB, grayscale) va bir xil amallar (resize, rang o’zgartirish, filtr, aniqlash) ishlatiladi.
+=> Video aslida rasmlar ketma-ketligi, shuning uchun rasmga qo’llanadigan usullar videoning har bir kadriga ham qo’llanadi.
+
+=> Vaqt o’lchami: rasm statik (bitta lahza), videoda vaqt o’lchami bor (kadrlar ketma-ketligi).
+=> Hajm: video ancha katta, chunki ko’p kadrdan iborat.
+=> rasm (H, W, C), video esa (kadrlar, H, W, C).
+
+2. Frame va image qanday farq bor?
+=> Image: mustaqil rasm. Odatda fayl (.jpg, .png) sifatida mavjud.
+=> Frame: videoning bitta kadri. U videoning bir qismi, o’z tartib raqami va vaqtiga ega (masalan, 90-kadr, 3-sekund).
+
+3. FPS yuqori va past bo’lishini taqqoslash
+
+                          Yuqori FPS           	                      Past FPS
+Harakat      	            Silliq, tekis	                              Uzuq-uzuq bo’lishi mumkin
+Fayl hajmi	              Katta	                                      Kichik
+Qayta ishlash	            Ko’p resurs va vaqt kerak	                  Yengil va tez
+Tez harakatni ushlash	    Yaxshi (sport, mashina)	                    Yomon, harakat xira yoki o’tkazib yuboriladi
+Qo’llanishi	              O’yinlar, sport, sekinlashtirilgan tasvir	  Kuzatuv kameralari, kam resursli tizimlar
+
+4. Videolarni qaysi kutubxona orqali yuklaymiz va ochamiz?
+
+=> Asosiy kutubxona OpenCV (cv2):
+Yuklash va ochish: cv2.VideoCapture("video.mp4")
+Kadr o’qish: cap.read()
+Ko’rsatish: cv2.imshow()
+Bo’shatish: cap.release()
+
+=> Matplotlib: kadrni Jupyter ichida ko’rsatish uchun.

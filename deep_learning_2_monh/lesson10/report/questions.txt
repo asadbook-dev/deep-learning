@@ -1,0 +1,22 @@
+1. Nima uchun kompyuterlar videoni to’g’ridan-to’g’ri tushunmaydi va uni framelarga ajratish kerak?
+=> chunki video fayl siqilgan baytlar oqimi, model esa faqat aniq shakldagi sonli massiv (piksellar matritsasi) bilan ishlay oladi. 
+Shuning uchun video avval kadrlarga ajratilib, har bir kadr sonlar jadvaliga aylantirilishi kerak.
+Sababi: Video siqilgan formatda saqlanadi.
+.mp4 fayl kodek (masalan H.264) bilan siqilgan. Kadrlarning ko’pi tayyor rasm sifatida emas, faqat oldingi kadrdan farq sifatida saqlanadi. Piksellarni olish uchun avval decode qilish kerak.
+
+
+2. Agar framelar tartibi o’zgarsa nima bo’ladi? Model training’ga qanday ta’sir qiladi?
+=> Video ma’nosi - ketma ket kadrlar hisoblanadi. Ketma ketlik buzilsa video manosini yoqotadi. Masalan 6 soni yozilgan 30fps 1 sekundlik videoni olsak. 30ta framedan iborat. birinchi frameda ruchka qogozga qoyiladi, 
+1-10- framegacha 6ning ilmogi yoziladi keyingilarida yumaloq qismi. Ketma ket holatda. Endi Bu framelar ketma ket bolmasa: birinchi tayyor yozilgan 6 soni chiqadi, keyin u yo'q bolib rushka qogozga bosilgan holati 
+keyin birdaniga yumaloq paydo bolib qoladi vahokazo. Yani tushunarsiz va manosiz narsa hosil boladi.
+=> Noto’g’ri belgilar o’rganiladi. Model harakat naqshini emas, tasodifiy aralashmani o’rganadi. Natijada action recognition kabi vazifalarda aniqlik keskin pasayadi.
+=> Training va test mos kelmaydi. Trainingda tartib buzilgan, testda to’g’ri bo’lsa, model real ma’lumotda yomon ishlaydi (generalization yomonlashadi).
+
+3. FPS juda baland bo’lsa nima bo’ladi?
+=> Harakat juda silliq ko’rinadi.
+=> Tez harakat (sport, mashina poygalarida, o’q otilgandagi harakat) aniq ushlanadi, harakat xiraligi kamayadi.
+=> Sekinlashtirilgan (slow-motion) tasvir olish mumkin.
+
+=> Fayl hajmi oshib ketadi
+=> Kadrlar soni ko’payadi, qayta ishlash uchun ko’p vaqt va resurs (CPU/GPU, RAM) kerak. Real vaqtda ishlash qiyinlashadi.
+=> Qo’shni kadrlar deyarli bir xil bo’ladi, ko’p kadr yangi ma’lumot bermaydi.
